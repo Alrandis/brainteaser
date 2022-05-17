@@ -4,15 +4,15 @@ using UnityEngine;
 
 public class Portal : MonoBehaviour
 {
-    // Start is called before the first frame update
-    void Start()
+    [SerializeField] private Transform position;
+    [SerializeField] private Transform endPosition;
+    private void OnCollisionEnter(Collision other)
     {
-        
-    }
+        if (other.gameObject.CompareTag("Player"))
+        {
+            Debug.Log("Скрипт работает");
+            position.position = endPosition.position;
+        }
 
-    // Update is called once per frame
-    void Update()
-    {
-        
     }
 }
