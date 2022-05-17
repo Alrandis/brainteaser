@@ -4,17 +4,21 @@ using UnityEngine;
 
 public class GetDamage : MonoBehaviour
 {
-    [SerializeField] private List<GameObject> dangerousObject;
+    //[SerializeField] private List<GameObject> dangerousObject;
     [SerializeField] private int Helth;
     //[SerializeField] private GameObject obj;
-    private void OnTriggerEnter(Collider dangerousObject)
+    private void OnCollisionEnter(Collision other)
     {
-        Helth -= 1;
+        if (other.gameObject.CompareTag("Peaks"))
+        {
+            Helth -= 1;  
+        }
         if (Helth == 0)
         {
             //Object.Destroy(obj);
             Destroy(gameObject);
         }
+
     }
 
 }
