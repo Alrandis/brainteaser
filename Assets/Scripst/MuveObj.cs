@@ -14,7 +14,7 @@ public class MuveObj : MonoBehaviour
     private void Start()
     {
         position = this.transform;
-        startZ = position.localPosition.y;
+        startZ = position.localPosition.z;
         startX = position.localPosition.x;
     }
     public void MuveForvard()
@@ -25,14 +25,14 @@ public class MuveObj : MonoBehaviour
     private IEnumerator MuveForvardCoroutine()
     {
 
-        while (position.localPosition.x < x || position.localPosition.y < z)
+        while (position.localPosition.x < x || position.localPosition.z < z)
         {
             position.localPosition += directionMove * Time.deltaTime;
             yield return null;
         }
         yield return new WaitForSeconds(2);
 
-        while (position.localPosition.x > startX || position.localPosition.y > startZ)
+        while (position.localPosition.x > startX || position.localPosition.z > startZ)
         {
             position.localPosition -= directionMove * Time.deltaTime;
             yield return null;
