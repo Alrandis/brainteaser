@@ -6,20 +6,23 @@ public class PlayerController : MonoBehaviour
 {
     private Rigidbody m_Rigidbody;
     [SerializeField] private int acceleration;
-    private bool Jump_active = false;
-    [SerializeField] Collider colider;
+    [SerializeField] private bool Jump_active = false;
+    //[SerializeField] Collider colider;
 
     private void Start()
     {
         m_Rigidbody = GetComponent<Rigidbody>();
     }
-    private void OnTriggerEnter(Collider colider)
+
+    private void OnTriggerEnter(Collider other)
     {
-        if(Jump_active == false)
+        if (other.gameObject.CompareTag("jump"))
         {
-           Jump_active = true;
-        }
-        
+            if (Jump_active == false)
+            {
+                Jump_active = true;
+            }
+        }   
     }
     void Update()
     {

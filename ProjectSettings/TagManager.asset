@@ -11,6 +11,7 @@ TagManager:
   - finish
   - Peaks
   - Portal
+  - jump
   layers:
   - Default
   - TransparentFX
