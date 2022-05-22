@@ -9,6 +9,9 @@ TagManager:
   - Button
   - Door
   - finish
+  - Peaks
+  - Portal
+  - jump
   layers:
   - Default
   - TransparentFX
